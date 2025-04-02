@@ -113,6 +113,7 @@ footer = f"""<footer style="padding-top: 200px;
                 Developed by Om Aryan</footer>"""
 
 st.title("Image Feature & Corner Detection")
+st.write("<i>Users must upload image(s) to see results. The application analyzes the provided image and displays the detected features.</i>",unsafe_allow_html=True)
 
 sift, orb, harris_corner, shi_tomasi = st.tabs(["SIFT", "ORB", "Harris Corner", "Shi-Tomasi"])
 
