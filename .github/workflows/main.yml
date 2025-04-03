@@ -19,8 +19,10 @@ jobs:
 
       - name: Commit & Push
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}  # Use secret token here
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}  # Ensure this is a PAT with 'repo' scope
         run: |
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/cyberpsychofc/Image-Feature-and-Corner-Detection.git
+          git remote set-url origin https://${GITHUB_TOKEN}@github.com/cyberpsychofc/Image-Feature-and-Corner-Detection.git
+          git fetch --unshallow
+          git pull origin main --rebase
           git commit --allow-empty -m "Wake up signal for Streamlit"
           git push origin main
